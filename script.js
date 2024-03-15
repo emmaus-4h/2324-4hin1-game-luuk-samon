@@ -33,16 +33,16 @@ var health = 100;  // health van speler
 var beweegAlles = function() {
   // speler
 if (keyIsDown(68)){
-  spelerX = spelerX + 1
+  spelerX = spelerX + 3
 }
   if (keyIsDown(65)){
-  spelerX = spelerX - 1
-}
-  if (keyIsDown(87)){
-  spelerY = spelerY + 1
+  spelerX = spelerX - 3
 }
   if (keyIsDown(83)){
-  spelerY = spelerY - 1
+  spelerY = spelerY + 3
+}
+  if (keyIsDown(87)){
+  spelerY = spelerY - 3
 }
   // vijand
 
@@ -68,7 +68,8 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-
+     fill("green");
+      rect(0,0,1280,720);
   // vijand
 
   // kogel
