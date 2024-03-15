@@ -95,7 +95,7 @@ var tekenAlles = function() {
  */
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  createCanvas(1280, 720);
+  createCanvas(1500, 1000);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
