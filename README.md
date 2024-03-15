@@ -20,3 +20,7 @@ https://cs50.harvard.edu/games/2018/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
+W = 87
+A = 65
+S = 83
+D = 68
