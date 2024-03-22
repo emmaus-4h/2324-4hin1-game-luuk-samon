@@ -26,7 +26,8 @@ var health = 100;  // health van speler
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
-
+var vijandX = 800; // x-positie van speler
+var vijandY = 650; // y-positie van speler
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
@@ -71,7 +72,10 @@ var tekenAlles = function() {
      fill("green");
       rect(0,0,1500,1000);
   // vijand
-
+fill("red");
+  rect(vijandX - 25, vijandY - 25, 50, 50);
+  fill("blue");
+  ellipse(vijandX, vijandY, 10, 10);
   // kogel
 
   // speler
