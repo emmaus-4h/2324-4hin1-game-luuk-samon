@@ -24,7 +24,9 @@ W = 87
 A = 65
 S = 83
 D = 68
-Arrow up = 24
-Arrow Down = 25
-Arrow Right = 26
-Arrow Left = 27
+Arrow up = 38
+Arrow Down = 40
+Arrow Right = 39
+Arrow Left = 37
+https://www.toptal.com/developers/keycode
+https://p5js.org/reference/

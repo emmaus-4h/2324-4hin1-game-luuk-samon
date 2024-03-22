@@ -48,16 +48,16 @@ if (keyIsDown(68)){
 }
 
   // vijand
-  if (keyIsDown(26)){
+  if (keyIsDown(39)){
   vijandX = vijandX + 3
 }
-  if (keyIsDown(27)){
+  if (keyIsDown(37)){
   vijandX = vijandX - 3
 }
-  if (keyIsDown(24)){
+  if (keyIsDown(40)){
   vijandY = vijandY + 3
 }
-  if (keyIsDown(25)){
+  if (keyIsDown(38)){
   vijandY = vijandY - 3
 }
   // kogel
