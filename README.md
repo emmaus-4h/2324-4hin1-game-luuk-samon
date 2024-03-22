@@ -24,3 +24,7 @@ W = 87
 A = 65
 S = 83
 D = 68
+Arrow up = 24
+Arrow Down = 25
+Arrow Right = 26
+Arrow Left = 27

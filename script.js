@@ -45,8 +45,20 @@ if (keyIsDown(68)){
   if (keyIsDown(87)){
   spelerY = spelerY - 3
 }
+
   // vijand
-  
+  if (keyIsDown(26)){
+  vijandX = vijandX + 3
+}
+  if (keyIsDown(27)){
+  vijandX = vijandX - 3
+}
+  if (keyIsDown(24)){
+  vijandY = vijandY + 3
+}
+  if (keyIsDown(25)){
+  vijandY = vijandY - 3
+}
   // kogel
 };
 
