@@ -46,7 +46,7 @@ if (keyIsDown(68)){
   spelerY = spelerY - 3
 }
   // vijand
-
+  
   // kogel
 };
 
