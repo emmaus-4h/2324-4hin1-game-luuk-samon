@@ -75,12 +75,12 @@ var verwerkBotsing = function() {
      spelerY - vijandY < 50 &&
      spelerY - vijandY > -50)
  {console.log("Botsing");}
-if 
+
   // botsing kogel tegen vijand
 
   // update punten en health
 
-};
+  };
 
 /**
  * Tekent spelscherm
