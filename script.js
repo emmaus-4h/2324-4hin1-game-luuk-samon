@@ -22,7 +22,7 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var health = 100;  // health van speler
+var health = 3;  // health van speler
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -75,6 +75,7 @@ var verwerkBotsing = function() {
      spelerY - vijandY < 50 &&
      spelerY - vijandY > -50)
  {console.log("Botsing");}
+if 
   // botsing kogel tegen vijand
 
   // update punten en health
