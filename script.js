@@ -93,7 +93,7 @@ var tekenAlles = function() {
 fill("red");
   rect(vijandX - 25, vijandY - 25, 50, 50);
   fill("blue");
-  ellipse(vijandX, vijandY, 10, 10);
+  ellipse(vijandX, vijandY, 20, 20);
   // kogel
 
   // speler
@@ -143,3 +143,4 @@ function draw() {
     // teken UITLEG scherm
   }
 }
+s
