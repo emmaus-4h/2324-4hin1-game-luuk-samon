@@ -102,10 +102,15 @@ fill("red");
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
+// border 
+fill ("black");
+  rect   (200,200,450,450);
+      
+  }
 
   // punten en health
 
-};
+
 
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
