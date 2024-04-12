@@ -103,7 +103,9 @@ fill("red");
   ellipse(spelerX, spelerY, 10, 10);
 
   // punten en health
-
+  if 
+  if (health < 1)
+    spelStatus = GAMEOVER
 };
 
 /* ********************************************* */
