@@ -75,6 +75,7 @@ var verwerkBotsing = function() {
      spelerY - vijandY < 50 &&
      spelerY - vijandY > -50)
  {console.log("Botsing");}
+  
 
   // botsing kogel tegen vijand
 
@@ -103,9 +104,7 @@ fill("red");
   ellipse(spelerX, spelerY, 10, 10);
 
   // punten en health
-  if 
-  if (health < 1)
-    spelStatus = GAMEOVER
+
 };
 
 /* ********************************************* */
@@ -120,7 +119,6 @@ fill("red");
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1500, 1000);
-
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
 }
@@ -143,4 +141,3 @@ function draw() {
     // teken UITLEG scherm
   }
 }
-s
