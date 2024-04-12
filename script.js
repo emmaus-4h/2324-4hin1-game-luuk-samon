@@ -165,4 +165,4 @@ function draw() {
  text("Druk 2 voor Level 2", 100, 600)
  text("Druk 3 voor Level 3", 100, 700)
   }
-}
+  }
