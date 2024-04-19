@@ -34,32 +34,32 @@ var vijandY = 650; // y-positie van speler
  */
 var beweegAlles = function() {
   // speler
-if (keyIsDown(68)){
-  spelerX = spelerX + 3
-}
-  if (keyIsDown(65)){
-  spelerX = spelerX - 3
-}
-  if (keyIsDown(83)){
-  spelerY = spelerY + 3
-}
-  if (keyIsDown(87)){
-  spelerY = spelerY - 3
-}
+  if (keyIsDown(68)) {
+    spelerX = spelerX + 3
+  }
+  if (keyIsDown(65)) {
+    spelerX = spelerX - 3
+  }
+  if (keyIsDown(83)) {
+    spelerY = spelerY + 3
+  }
+  if (keyIsDown(87)) {
+    spelerY = spelerY - 3
+  }
 
   // vijand
-  if (keyIsDown(39)){
-  vijandX = vijandX + 3
-}
-  if (keyIsDown(37)){
-  vijandX = vijandX - 3
-}
-  if (keyIsDown(40)){
-  vijandY = vijandY + 3
-}
-  if (keyIsDown(38)){
-  vijandY = vijandY - 3
-}
+  if (keyIsDown(39)) {
+    vijandX = vijandX + 3
+  }
+  if (keyIsDown(37)) {
+    vijandX = vijandX - 3
+  }
+  if (keyIsDown(40)) {
+    vijandY = vijandY + 3
+  }
+  if (keyIsDown(38)) {
+    vijandY = vijandY - 3
+  }
   // kogel
 };
 
@@ -70,28 +70,27 @@ if (keyIsDown(68)){
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
- if (spelerX - vijandX < 50 &&
-     spelerX - vijandX > -50 &&
-     spelerY - vijandY < 50 &&
-     spelerY - vijandY > -50)
- {console.log("Botsing");}
-  
+  if (spelerX - vijandX < 50 &&
+    spelerX - vijandX > -50 &&
+    spelerY - vijandY < 50 &&
+    spelerY - vijandY > -50) { console.log("Botsing"); }
+
 
   // botsing kogel tegen vijand
 
   // update punten en health
 
-  };
+};
 
 /**
  * Tekent spelscherm
  */
 var tekenAlles = function() {
   // achtergrond
-     fill("green");
-      rect(0,0,1500,1000);
+  fill("green");
+  rect(0, 0, 1500, 1000);
   // vijand
-fill("red");
+  fill("red");
   rect(vijandX - 25, vijandY - 25, 50, 50);
   fill("blue");
   ellipse(vijandX, vijandY, 20, 20);
@@ -102,13 +101,13 @@ fill("red");
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
-// border 
-fill ("black");
-  rect   (200,200,450,450);
-      
-  }
+  // border 
+  fill("black");
+  rect(200, 200, 450, 450);
 
-  // punten en health
+}
+
+// punten en health
 
 
 
@@ -139,30 +138,31 @@ function draw() {
     verwerkBotsing();
     tekenAlles();
     if (health <= 0) {
-    
-    if (spelStatus = GAMEOVER) {
-      //teken GAMEOVER scherm
-      console.log("game-over")
- textSize(50);
- fill("red ");
- text("GAME OVER", 500, 200);
- fill("black")
- text("1. Druk ENTER om opnieuw te spelen", 250, 300)
- text("2. Druk Q om naar het hoofdmenu te gaan", 100, 400)
-      
+      spelStatus = GAMEOVER;
     }
+  }
+  if (spelStatus = GAMEOVER) {
+    //teken GAMEOVER scherm
+    console.log("game-over")
+    textSize(50);
+    fill("red ");
+    text("GAME OVER", 500, 200);
+    fill("black")
+    text("1. Druk ENTER om opnieuw te spelen", 250, 300)
+    text("2. Druk Q om naar het hoofdmenu te gaan", 100, 400)
+
   }
   if (spelStatus === UITLEG) {
     // teken UITLEG scherm
     console.log("uitleg")
- textSize(50);
- fill("red ");
- text("Uitleg", 500, 200);
- fill("black")
- text("1. Pak de sleutel en ga naar de deur", 250, 300)
- text("2. Ontwijk de vijand", 100, 400)
- text("Druk 1 voor Level 1", 100, 500)
- text("Druk 2 voor Level 2", 100, 600)
- text("Druk 3 voor Level 3", 100, 700)
+    textSize(50);
+    fill("red ");
+    text("Uitleg", 500, 200);
+    fill("black")
+    text("1. Pak de sleutel en ga naar de deur", 250, 300)
+    text("2. Ontwijk de vijand", 100, 400)
+    text("Druk 1 voor Level 1", 100, 500)
+    text("Druk 2 voor Level 2", 100, 600)
+    text("Druk 3 voor Level 3", 100, 700)
   }
-  }
+}
