@@ -77,7 +77,7 @@ var verwerkBotsing = function() {
     spelerY - vijandY < 50 &&
     spelerY - vijandY > -50) {
     console.log("Botsing");
-    health = health -1;
+    health = health - 1;
   }
 
 
@@ -148,12 +148,45 @@ function draw() {
   }
 
   if (spelStatus === GAMEOVER) {
-    background("black");
-    fill("white");
+    //teken GAMEOVER scherm
+    console.log("game-over")
+    // achtergrond
+    background("brown")
+    fill("red")
+    rect(0, 0, 1500, 1000);
     textSize(50);
-    text("Game Over", 700, 500);
+    fill("red ");
+    text("GAME OVER", 500, 200);
+    fill("black")
+    text("1. Druk ENTER om opnieuw te spelen", 250, 300)
+    text("2. Druk Q om naar het hoofdmenu te gaan", 200, 400)
+
+    if (keyIsDown(13)) {
+      spelStatus = SPELEN;
+      spelerX = 400, spelerY = 600, spelerX = 800, spelerY = 600;
+      health = 100;
+    }
+    if (keyIsDown(81)) {
+      spelStatus === UITLEG;
+    }
   }
+
   if (health <= 0) {
     spelStatus = GAMEOVER;
   }
-}
+
+  if (spelStatus === UITLEG) {
+    background("black");
+    fill("white");
+    textSize(50);
+    fill("red ");
+    text("Uitleg", 500, 200);
+    fill("black")
+    text("1. Pak de sleutel en ga naar de deur", 250, 300)
+    text("2. Ontwijk de vijand", 100, 400)
+    text("Druk 1 voor Level 1", 500, 500)
+    text("Druk 2 voor Level 2", 500, 600)
+    text("Druk 3 voor Level 3", 500, 700)
+
+  }
+}  
