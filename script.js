@@ -22,7 +22,7 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var health = 3;  // health van speler
+var health = 100;  // health van speler
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -35,7 +35,7 @@ var vijandY = 650; // y-positie van speler
 var beweegAlles = function() {
   // speler
   if (keyIsDown(68)) {
-    spelerX = spelerX + 3 
+    spelerX = spelerX + 3
   }
   if (keyIsDown(65)) {
     spelerX = spelerX - 3
@@ -46,7 +46,7 @@ var beweegAlles = function() {
   if (keyIsDown(87)) {
     spelerY = spelerY - 3
   }
-// border 
+  // border 
   spelerX = constrain(spelerX, 25, 1475);
   spelerY = constrain(spelerY, 25, 975);
   // vijand
@@ -75,7 +75,10 @@ var verwerkBotsing = function() {
   if (spelerX - vijandX < 50 &&
     spelerX - vijandX > -50 &&
     spelerY - vijandY < 50 &&
-    spelerY - vijandY > -50) { console.log("Botsing"); }
+    spelerY - vijandY > -50) {
+    console.log("Botsing");
+    health = health -1;
+  }
 
 
   // botsing kogel tegen vijand
@@ -110,7 +113,7 @@ var tekenAlles = function() {
 
 // punten en health
 
- 
+
 
 
 /* ********************************************* */
@@ -140,16 +143,17 @@ function draw() {
     verwerkBotsing();
     tekenAlles();
 
-    
-      
-    }
+
+
   }
+
   if (spelStatus === GAMEOVER) {
     background("black");
     fill("white");
     textSize(50);
     text("Game Over", 700, 500);
   }
-if (health <= 0) {
+  if (health <= 0) {
     spelStatus = GAMEOVER;
+  }
 }
