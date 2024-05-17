@@ -165,7 +165,7 @@ function draw() {
 
     if (keyIsDown(13)) {
       spelStatus = SPELEN;
-      spelerX = 400, spelerY = 600, spelerX = 800, spelerY = 600;
+      spelerX = 100, spelerY = 100, spelerX = 800, spelerY = 600;
       health = 100;
     }
     if (keyIsDown(81)) {
