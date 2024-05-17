@@ -20,8 +20,8 @@ const GAMEOVER = 2;
 const UITLEG = 3;
 var spelStatus = SPELEN;
 
-var spelerX = 600; // x-positie van speler
-var spelerY = 600; // y-positie van speler
+var spelerX = 100; // x-positie van speler
+var spelerY = 100; // y-positie van speler
 var health = 100;  // health van speler
 
 /* ********************************************* */
@@ -79,7 +79,6 @@ var verwerkBotsing = function() {
     console.log("Botsing");
     health = health - 1;
   }
-
 
   // botsing kogel tegen vijand
 
@@ -143,6 +142,9 @@ function draw() {
     verwerkBotsing();
     tekenAlles();
 
+    if (health <= 0) {
+      spelStatus = GAMEOVER;
+    }
 
 
   }
@@ -167,26 +169,30 @@ function draw() {
       health = 100;
     }
     if (keyIsDown(81)) {
-      spelStatus === UITLEG;
+      spelStatus = UITLEG;
     }
   }
 
-  if (health <= 0) {
-    spelStatus = GAMEOVER;
-  }
 
   if (spelStatus === UITLEG) {
-    background("black");
+    background("brown");
     fill("white");
     textSize(50);
     fill("red ");
-    text("Uitleg", 500, 200);
+    text("Uitleg", 600, 200);
     fill("black")
-    text("1. Pak de sleutel en ga naar de deur", 250, 300)
-    text("2. Ontwijk de vijand", 100, 400)
-    text("Druk 1 voor Level 1", 500, 500)
-    text("Druk 2 voor Level 2", 500, 600)
-    text("Druk 3 voor Level 3", 500, 700)
+    text("1. Pak de sleutel en ga naar de deur", 325, 300)
+    text("2. Ontwijk de vijand", 500, 400)
+    text("Druk '1' voor Level 1", 500, 500)
+    text("Druk '2' voor Level 2", 500, 600)
+    text("Druk '3' voor Level 3", 500, 700)
 
+    
+    if (keyIsDown(49)) {
+      spelStatus = SPELEN
+      health = 100
+      spelerX = 100
+      spelerY = 100
+    }
   }
 }  
