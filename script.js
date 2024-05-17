@@ -22,7 +22,9 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var health = 100;  // health van speler
+var health = 100;  // health van speler\
+var spelerXnieuw = 600;
+var spelerYnieuw =600;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -79,10 +81,10 @@ var verwerkBotsing = function() {
     console.log("Botsing");
     health = health - 1;
   }
-
+ 
 
   // botsing kogel tegen vijand
-
+ 
   // update punten en health
 
 };
@@ -107,7 +109,10 @@ var tekenAlles = function() {
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
   // border 
-
+  rect (100,10,200,650);
+  rect (1000,10,200,650);
+  rect (100,800,600,100);
+  rect (100,10,200,50);
 
 }
 
