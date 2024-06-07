@@ -18,6 +18,7 @@
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
+const VICTORY = 4;
 var spelStatus = SPELEN;
 
 
@@ -35,9 +36,11 @@ var spelerYnieuw = 600;
 var vijandX = 800; // x-positie van speler
 var vijandY = 650; // y-positie van speler
 /**/
- var sleutel
- /* Updatet globale variabelen met posities van speler, vijanden en kogels
- */
+var sleutelX = 1350; // x-positie van sleutel
+var sleutelY = 50; // y-positie van sleutel
+
+/* Updatet globale variabelen met posities van speler, vijanden en kogels
+*/
 var beweegAlles = function() {
   // speler
   if (keyIsDown(68)) {
@@ -85,10 +88,16 @@ var verwerkBotsing = function() {
     console.log("Botsing");
     health = health - 1;
   }
-
+  if (spelerX - sleutelX < 50 &&
+    spelerX - sleutelX > -50 &&
+    spelerY - sleutelY < 50 &&
+    spelerY - sleutelY > -50) {
+    console.log("Botsing");
+    health = health + 101;
+  }
 
   // botsing kogel tegen vijand
- 
+
   // update punten en health
 
 };
@@ -112,12 +121,16 @@ var tekenAlles = function() {
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
+  
+  // sleutel
+  rect(sleutelX - 25, sleutelY - 25, 50, 50);
+  
   // border 
-  rect (100,10,200,650);
-  rect (1000,10,200,650);
-  rect (100,800,600,100);
-  rect (100,10,200,50);
- 
+  rect(100, 10, 200, 650);
+  rect(1000, 10, 200, 650);
+  rect(100, 800, 600, 100);
+  rect(100, 10, 200, 50);
+
 }
 
 // punten en health
@@ -152,10 +165,18 @@ function draw() {
     verwerkBotsing();
     tekenAlles();
 
+
+
+
+
     if (health <= 0) {
       spelStatus = GAMEOVER;
     }
 
+    if (health > 101) 
+    {
+      spelStatus = VICTORY;
+    }
 
   }
 
@@ -170,8 +191,8 @@ function draw() {
     fill("red ");
     text("GAME OVER", 500, 200);
     fill("black")
-    text("1. Druk ENTER om opnieuw te spelen", 250, 300)
-    text("2. Druk Q om naar het hoofdmenu te gaan", 200, 400)
+    text("1. Druk 'ENTER' om opnieuw te spelen", 250, 300)
+    text("2. Druk 'Q' om naar het hoofdmenu te gaan", 200, 400)
 
     if (keyIsDown(13)) {
       spelStatus = SPELEN;
@@ -184,6 +205,22 @@ function draw() {
   }
 
 
+  if (spelStatus === VICTORY) {
+    background("blue");
+    fill("white");
+    textSize(50);
+    fill("white ");
+    text("VICTORY!!!", 600, 200);
+    fill("black")
+    text("Goed gedaan! Je hebt het level voltooid!", 325, 350)
+    text("Druk 'ENTER' om opnieuw te spelen", 350, 450)
+
+    if (keyIsDown(13)) {
+      spelStatus = SPELEN;
+      spelerX = 100, spelerY = 100, spelerX = 800, spelerY = 600;
+      health = 100;
+    }
+  }
   if (spelStatus === UITLEG) {
     background("brown");
     fill("white");
@@ -197,7 +234,7 @@ function draw() {
     text("Druk '2' voor Level 2", 500, 600)
     text("Druk '3' voor Level 3", 500, 700)
 
-    
+
     if (keyIsDown(49)) {
       spelStatus = SPELEN
       health = 100
