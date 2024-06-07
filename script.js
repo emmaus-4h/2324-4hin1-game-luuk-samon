@@ -26,7 +26,7 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var health = 100;  // health van speler\
 var spelerXnieuw = 600;
-var spelerYnieuw =600;
+var spelerYnieuw = 600;
 
 
 /* ********************************************* */
@@ -34,8 +34,9 @@ var spelerYnieuw =600;
 /* ********************************************* */
 var vijandX = 800; // x-positie van speler
 var vijandY = 650; // y-positie van speler
-/**
- * Updatet globale variabelen met posities van speler, vijanden en kogels
+/**/
+ var sleutel
+ /* Updatet globale variabelen met posities van speler, vijanden en kogels
  */
 var beweegAlles = function() {
   // speler
@@ -116,7 +117,7 @@ var tekenAlles = function() {
   rect (1000,10,200,650);
   rect (100,800,600,100);
   rect (100,10,200,50);
-
+ 
 }
 
 // punten en health
