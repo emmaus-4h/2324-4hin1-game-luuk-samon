@@ -23,18 +23,18 @@ var spelStatus = SPELEN;
 
 
 
-var spelerX = 600; // x-positie van speler
-var spelerY = 600; // y-positie van speler
+var spelerX = 50; // x-positie van speler
+var spelerY = 50; // y-positie van speler
 var health = 100;  // health van speler\
-var spelerXnieuw = 600;
-var spelerYnieuw = 600;
+var spelerXnieuw = 50;
+var spelerYnieuw = 50;
 
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
-var vijandX = 800; // x-positie van speler
-var vijandY = 650; // y-positie van speler
+var vijandX = 650; // x-positie van speler
+var vijandY = 50; // y-positie van speler
 /**/
 var sleutelX = 1350; // x-positie van sleutel
 var sleutelY = 50; // y-positie van sleutel
@@ -131,12 +131,22 @@ var tekenAlles = function() {
   rect(100, 800, 600, 100);
   rect(100, 10, 200, 50);
 
+  text(health, 1400, 900);
+  textSize(40);
+
+  text(tijd, 1400, 950)
+  textSize(40)
+
+   tijd = tijd - 1;
+if (tijd === 0)
+  spelStatus = GAMEOVER;
 }
 
 // punten en health
+var health = 100;
 
-
-
+var tijd = 5000
+ 
 
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
@@ -191,12 +201,13 @@ function draw() {
     fill("red ");
     text("GAME OVER", 500, 200);
     fill("black")
-    text("1. Druk 'ENTER' om opnieuw te spelen", 250, 300)
-    text("2. Druk 'Q' om naar het hoofdmenu te gaan", 200, 400)
+    text("GAMEOVER", 500, 300)
+    text("1. Druk 'ENTER' om opnieuw te spelen", 250, 400)
+    text("2. Druk 'Q' om naar het hoofdmenu te gaan", 200, 500)
 
     if (keyIsDown(13)) {
       spelStatus = SPELEN;
-      spelerX = 100, spelerY = 100, spelerX = 800, spelerY = 600;
+      spelerX = 50, spelerY = 50, vijandX = 650, vijandY = 50;
       health = 100;
     }
     if (keyIsDown(81)) {
@@ -214,11 +225,14 @@ function draw() {
     fill("black")
     text("Goed gedaan! Je hebt het level voltooid!", 325, 350)
     text("Druk 'ENTER' om opnieuw te spelen", 350, 450)
-
+    text("Druk 'Q' om naar het hoofdmenu te gaan", 300, 550)
     if (keyIsDown(13)) {
       spelStatus = SPELEN;
-      spelerX = 100, spelerY = 100, spelerX = 800, spelerY = 600;
+      spelerX = 50, spelerY = 50, vijandX = 650, vijandY = 50;
       health = 100;
+    }
+    if (keyIsDown(81)) {
+      spelStatus = UITLEG;
     }
   }
   if (spelStatus === UITLEG) {
@@ -228,7 +242,7 @@ function draw() {
     fill("red ");
     text("Uitleg", 600, 200);
     fill("black")
-    text("1. Pak de sleutel en ga naar de deur", 325, 300)
+    text("1. Pak de sleutel en ontsnap uit het doolhof", 325, 300)
     text("2. Ontwijk de vijand", 500, 400)
     text("Druk '1' voor Level 1", 500, 500)
     text("Druk '2' voor Level 2", 500, 600)
@@ -238,8 +252,7 @@ function draw() {
     if (keyIsDown(49)) {
       spelStatus = SPELEN
       health = 100
-      spelerX = 100
-      spelerY = 100
+      spelerX = 50, spelerY = 50, vijandX = 650, vijandY = 50;
     }
   }
 }  
