@@ -15,9 +15,9 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
-const SPELEN = 1;
+const UITLEG = 1;
 const GAMEOVER = 2;
-const UITLEG = 3;
+const SPELEN = 3;
 const VICTORY = 4;
 var spelStatus = SPELEN;
 
@@ -44,16 +44,16 @@ var sleutelY = 50; // y-positie van sleutel
 var beweegAlles = function() {
   // speler
   if (keyIsDown(68)) {
-    spelerX = spelerX + 3
+    spelerX = spelerX + 3.5
   }
   if (keyIsDown(65)) {
-    spelerX = spelerX - 3
+    spelerX = spelerX - 3.5
   }
   if (keyIsDown(83)) {
-    spelerY = spelerY + 3
+    spelerY = spelerY + 3.5
   }
   if (keyIsDown(87)) {
-    spelerY = spelerY - 3
+    spelerY = spelerY - 3.5
   }
   // border 
   spelerX = constrain(spelerX, 25, 1475);
@@ -121,9 +121,9 @@ var tekenAlles = function() {
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
-  
+
   // sleutel
-  rect(sleutelX - 25, sleutelY - 25, 50, 50);
+  rect(sleutelX - 25, sleutelY - 25, 50, 50);``
   
   // border 
   rect(100, 10, 200, 650);
@@ -137,16 +137,16 @@ var tekenAlles = function() {
   text(tijd, 1400, 950)
   textSize(40)
 
-   tijd = tijd - 1;
-if (tijd === 0)
-  spelStatus = GAMEOVER;
+  tijd = tijd - 1;
+  if (tijd === 0)
+    spelStatus = GAMEOVER;
 }
 
 // punten en health
 var health = 100;
 
-var tijd = 5000
- 
+var tijd = 5000;
+
 
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
@@ -175,7 +175,27 @@ function draw() {
     verwerkBotsing();
     tekenAlles();
 
+    if (spelStatus === UITLEG) {
+      background("brown");
+      fill("white");
+      textSize(50);
+      fill("red ");
+      text("Uitleg", 600, 200);
+      fill("black")
+      text("1. Pak de sleutel en ontsnap uit het doolhof", 325, 300)
+      text("2. Ontwijk de vijand", 500, 400)
+      text("Druk '1' voor Level 1", 500, 500)
+      text("Druk '2' voor Level 2", 500, 600)
+      text("Druk '3' voor Level 3", 500, 700)
 
+
+      if (keyIsDown(49)) {
+        spelStatus = SPELEN
+        spelerX = 50, spelerY = 50, vijandX = 650, vijandY = 50;
+        health = 100;
+        tijd = 5000;
+      }
+    }
 
 
 
@@ -183,8 +203,7 @@ function draw() {
       spelStatus = GAMEOVER;
     }
 
-    if (health > 101) 
-    {
+    if (health > 101) {
       spelStatus = VICTORY;
     }
 
@@ -197,7 +216,7 @@ function draw() {
     background("brown")
     fill("red")
     rect(0, 0, 1500, 1000);
-    textSize(50);
+    textSize(60);
     fill("red ");
     text("GAME OVER", 500, 200);
     fill("black")
@@ -209,6 +228,7 @@ function draw() {
       spelStatus = SPELEN;
       spelerX = 50, spelerY = 50, vijandX = 650, vijandY = 50;
       health = 100;
+      tijd = 5000;
     }
     if (keyIsDown(81)) {
       spelStatus = UITLEG;
@@ -226,33 +246,15 @@ function draw() {
     text("Goed gedaan! Je hebt het level voltooid!", 325, 350)
     text("Druk 'ENTER' om opnieuw te spelen", 350, 450)
     text("Druk 'Q' om naar het hoofdmenu te gaan", 300, 550)
+    
     if (keyIsDown(13)) {
       spelStatus = SPELEN;
       spelerX = 50, spelerY = 50, vijandX = 650, vijandY = 50;
       health = 100;
+      tijd = 5000;
     }
     if (keyIsDown(81)) {
       spelStatus = UITLEG;
-    }
-  }
-  if (spelStatus === UITLEG) {
-    background("brown");
-    fill("white");
-    textSize(50);
-    fill("red ");
-    text("Uitleg", 600, 200);
-    fill("black")
-    text("1. Pak de sleutel en ontsnap uit het doolhof", 325, 300)
-    text("2. Ontwijk de vijand", 500, 400)
-    text("Druk '1' voor Level 1", 500, 500)
-    text("Druk '2' voor Level 2", 500, 600)
-    text("Druk '3' voor Level 3", 500, 700)
-
-
-    if (keyIsDown(49)) {
-      spelStatus = SPELEN
-      health = 100
-      spelerX = 50, spelerY = 50, vijandX = 650, vijandY = 50;
     }
   }
 }  
